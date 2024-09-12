@@ -1,27 +1,23 @@
-Feature: Finalizar compra
+#language: pt
+
+Funcionalidade: Finalizar compra
 
     Como cliente da EBAC-SHOP
-Quero fazer concluir meu cadastro   
-Para finalizar minha compra
+    Quero fazer concluir meu cadastro   
+    Para finalizar minha compra
 
-Background: Página de checkout
-Given acesso a página de "checkout" para finalizar a compra
+Contexto: Página de checkout
+Dado que eu acesso a página de "checkout" para finalizar a compra
 
-Scenario: Todos os dados obrigatórios preenchidos
-When preencho o Nome
-And preencho o Sobrenome
-And seleciono o País
-And preencho o Endereço
-And preencho a Cidade
-And preencho o CEP
-And preencho o Telefone
-And preencho email válido
-Then sou redirecionado para a página de pagamento
+Cenario: Todos os dados obrigatórios preenchidos
+Quando preencho os campos obrigatórios demarcados com "*"
+Entao sou redirecionado para a página de pagamento
 
-Scenario: Campo obrigatório vazio
-When deixo um campo obrigatório vazio
-Then exibe alerta "Por favor preencha os campos obrigatórios (*)."
+Cenario: Email inválido
+Quando preencho o campo com email inválido
+Entao exibe alerta "Por favor insira um Email válido. "
 
-Scenario: Email inválido
-When preencho o campo com email inválido
-Then exibe alerta "Por favor insira um Email válido. "
+Cenario: Campo obrigatório vazio
+Quando deixo um campo obrigatório vazio
+Entao exibe alerta "Por favor preencha os campos obrigatórios (*)."
+

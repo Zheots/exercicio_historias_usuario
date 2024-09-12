@@ -1,16 +1,17 @@
-Feature: Login na plataforma
+#language: pt
+
+Funcionalidade: Login na plataforma
 
     Como cliente da EBAC-SHOP
     Quero fazer o login (autenticação) na plataforma
     Para visualizar meus pedidos
 
-    Background: Tela de login
-        Given acesso a página de login
+    Contexto: Tela de login
+        Dado que eu acesso a página de login
 
-    Scenario: Autênticação bem sucedida
-        When eu digito o <usuario>
-        And eu digito a <senha>
-        Then sou redirecionado à tela de "checkout"
+    Cenario: Autênticação bem sucedida
+        Quando eu digito o <usuario> e <senha> corretos
+        Entao sou redirecionado à tela de "checkout"
 
         Examples:
             | usuario             | senha       |
@@ -20,6 +21,6 @@ Feature: Login na plataforma
 
 
 
-    Scenario: Autênticação falha
-        When eu digito um usuário ou senha incorreto
-        Then deve exibir uma mensagem de alerta “Usuário ou senha inválidos”
+    Cenario: Autênticação falha
+        Quando eu digito um usuário ou senha incorreto
+        Entao deve exibir uma mensagem de alerta “Usuário ou senha inválidos”
